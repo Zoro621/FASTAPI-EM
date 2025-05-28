@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Moderation API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Image Moderation API</h1>
+            <p>AI-powered content safety for your images</p>
+        </header>
+
+        <div class="auth-section">
+            <h2>Authentication</h2>
+            <div class="token-input">
+                <input type="text" id="tokenInput" placeholder="Enter your bearer token">
+                <button onclick="setToken()">Set Token</button>
+            </div>
+            <div class="token-status" id="tokenStatus"></div>
+        </div>
+
+        <div class="moderation-section">
+            <h2>Image Moderation</h2>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                <div class="upload-prompt">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7,10 12,15 17,10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <p>Click to upload an image or drag and drop</p>
+                    <p class="file-info">Supported: JPG, PNG, GIF (Max 10MB)</p>
+                </div>
+            </div>
+            <button id="moderateBtn" onclick="moderateImage()" disabled>Analyze Image</button>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Moderation Results</h2>
+            <div class="result-card" id="resultCard"></div>
+        </div>
+
+        <div class="admin-section" id="adminSection" style="display: none;">
+            <h2>Admin Panel</h2>
+            <div class="admin-controls">
+                <button onclick="createToken()">Create New Token</button>
+                <button onclick="listTokens()">List All Tokens</button>
+            </div>
+            <div id="adminResults"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
